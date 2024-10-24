@@ -7,3 +7,8 @@ contextBridge.exposeInMainWorld('updater', {
   downloadUpdate: () => ipcRenderer.send('download-update'),
   installUpdate: () => ipcRenderer.send('install-update')
 });
+
+contextBridge.exposeInMainWorld('electron', {
+  minimizeWindow: () => ipcRenderer.send('minimize-window'),
+  closeWindow: () => ipcRenderer.send('close-window')
+});

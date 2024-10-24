@@ -11,12 +11,15 @@ const createWindow = () => {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: false, // 보안을 위해 false로 설정하는 것이 좋습니다.
-      contextIsolation: true, // 보안을 위해 true로 설정하는 것이 좋습니다.
+      nodeIntegration: false,
+      contextIsolation: true,
       enableRemoteModule: false
-    }
+    },
+    frame: false
   });
 
+  mainWindow.setMenu(null);
+  mainWindow.setResizable(false);
   mainWindow.loadFile('index.html');
 
   // 현재 버전 보내기
@@ -73,4 +76,21 @@ ipcMain.on('download-update', () => {
 // 업데이트 설치 요청 처리
 ipcMain.on('install-update', () => {
   autoUpdater.quitAndInstall();
+});
+
+// 창 제어 이벤트 처리
+ipcMain.on('minimize-window', () => {
+  mainWindow.minimize();
+});
+
+ipcMain.on('maximize-window', () => {
+  if (mainWindow.isMaximized()) {
+    mainWindow.unmaximize();
+  } else {
+    mainWindow.maximize();
+  }
+});
+
+ipcMain.on('close-window', () => {
+  mainWindow.close();
 });

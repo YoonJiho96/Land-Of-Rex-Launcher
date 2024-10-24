@@ -25,15 +25,17 @@ const createWindow = () => {
   // 현재 버전 보내기
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.webContents.send('current-version', app.getVersion());
-    if (latestVersion) {
-      mainWindow.webContents.send('latest-version', latestVersion);
-    }
   });
 
   // 업데이트가 있을 때 최신 버전 정보 사용자에게 알림
   autoUpdater.on('update-available', (info) => {
     latestVersion = info.version;
     mainWindow.webContents.send('update-available', latestVersion);
+  });
+
+  // 업데이트 다운로드 진행 상황
+  autoUpdater.on('download-progress', (progressObj) => {
+    mainWindow.webContents.send('download-progress', progressObj);
   });
 
   // 업데이트 다운로드 완료 후 사용자에게 알림

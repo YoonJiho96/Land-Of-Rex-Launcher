@@ -32,7 +32,7 @@
     </div>
   </div>
 
-  <!-- 업데이트 완료 모달 -->
+  <!-- 업데이트 다운로드 완료 모달 -->
   <div id="downloaded-modal" class="modal">
     <div class="modal-content">
       <h2>업데이트 완료</h2>
@@ -41,6 +41,18 @@
         <button id="install-yes" class="btn-primary">예</button>
         <button id="install-no" class="btn-secondary">아니오</button>
       </div>
+    </div>
+  </div>
+
+  <!-- 업데이트 다운로드 진행 모달 -->
+  <div id="progress-modal" class="modal">
+    <div class="modal-content">
+      <h2>업데이트 다운로드 중</h2>
+      <p>업데이트를 다운로드하는 중입니다. 잠시만 기다려주세요.</p>
+      <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <p id="progress-percent">0%</p>
     </div>
   </div>
   <script src="script.js"></script>

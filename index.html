@@ -1,24 +1,69 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
-  <title>게임 런처</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Land Of Rex</title>
+  <link rel="stylesheet" href="scripts/css/style.css">
+  <link rel="stylesheet" href="scripts/css/fonts.css">
+  <link rel="stylesheet" href="scripts/css/notice.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
-  <div id="window-controls">
-    <button id="minimize-btn" class="control-btn">
-      <i class="far fa-window-minimize"></i>
-    </button>
-    <button id="close-btn" class="control-btn">
-      <i class="fas fa-times"></i>
-    </button>
+  <!-- 상단 바 컨테이너 -->
+  <div id="top-bar">
+    <p class="launcher-version">v<span id="current-version">1.0.0</span></p>
+    <div id="window-controls">
+      <button id="minimize-btn" class="control-btn" title="최소화">
+        <i class="far fa-window-minimize"></i>
+      </button>
+      <button id="close-btn" class="control-btn" title="닫기">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
   </div>
-  
-  <h1>게임 런처</h1>
-  <p>현재 버전: <span id="current-version">1.0.0</span></p>
-  <p id="latest-version"></p>
+
+  <!-- 타이틀 -->
+  <div class="title-container">
+    <p class="game-title">Land Of Rex</p>
+  </div>
+  <!-- <p id="latest-version"></p> -->
+
+  <div class="notice-container">
+    <div class="notice-header">
+      <h2 class="notice-title">공지사항</h2>
+    </div>
+    <ul class="notice-list">
+      <li class="notice-item">
+      </li>
+    </ul>
+    <div class="notice-pagination">
+      <button class="page-button" disabled>&lt;</button>
+      <button class="page-button active">1</button>
+      <button class="page-button">2</button>
+      <button class="page-button">3</button>
+      <button class="page-button">&gt;</button>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div id="progress-game-container">
+      <div class="progress-info">
+        <p class="progress-text">다운로드 진행률: <span id="progress-game-percent">0%</span></p>
+        <button id="game-validate" class="game-validate-btn"><i class="fas fa-search"></i> 파일 검사하기</button>
+      </div>
+      <progress id="progress-game-bar" value="100" max="100"></progress>
+      <div class="validate-info">
+        <p class="validate-text" id="latest-game-version">버전 확인 중...</p>
+      </div>
+    </div>
+    <div id="game-start-container">
+      <button id="download-button" class="game-button">게임 다운로드</button>
+      <button id="game-start-button" class="game-button" style="display: none;">게임 시작</button>
+      <button id="game-update-button" class="game-button" style="display: none;">게임 업데이트</button>
+    </div>
+  </div>
 
   <!-- 업데이트 알림 모달 -->
   <div id="update-modal" class="modal">
@@ -55,6 +100,53 @@
       <p id="progress-percent">0%</p>
     </div>
   </div>
-  <script src="script.js"></script>
+
+  <!-- 게임 다운로드 확인 모달 -->
+  <div id="download-modal" class="modal">
+    <div class="modal-content">
+      <h2>게임 다운로드</h2>
+      <p>게임을 다운로드하시겠습니까?</p>
+      <div class="modal-buttons">
+        <button id="download-yes" class="btn-primary">예</button>
+        <button id="download-no" class="btn-secondary">아니오</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 다운로드 완료 모달 -->
+  <div id="download-complete-modal" class="modal">
+    <div class="modal-content">
+      <h2>다운로드 완료</h2>
+      <p>게임 다운로드가 성공적으로 완료되었습니다!</p>
+      <div class="modal-buttons">
+        <button id="download-complete-ok" class="btn-primary">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 다운로드 오류 모달 -->
+  <div id="download-error-modal" class="modal">
+    <div class="modal-content">
+      <h2>다운로드 오류</h2>
+      <p id="download-error-message">다운로드 중 오류가 발생했습니다.</p>
+      <div class="modal-buttons">
+        <button id="download-error-ok" class="btn-primary">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 게임 실행 오류 모달 -->
+  <div id="game-start-error-modal" class="modal">
+    <div class="modal-content">
+      <h2>게임 시작 오류</h2>
+      <p id="game-start-error-message">게임 시작 중 오류가 발생했습니다.</p>
+      <div class="modal-buttons">
+        <button id="game-start-error-ok" class="btn-primary">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="scripts/js/mainController.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,285 @@
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #f44336;
+    color: white;
+}
+
+/* 일렉트론 프레임 설정*/
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -webkit-app-region: drag;
+    user-select: none;
+    background-color: #FFa500;
+}
+
+button {
+    -webkit-app-region: no-drag;
+}
+
+/* 타이틀바 버튼 */
+#window-controls {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    display: flex;
+    gap: 4px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #ddd;
+    /* cursor: pointer; */
+}
+
+.control-btn:hover {
+    color: #f44336;
+}
+
+/* 다운로드 바 스타일 */
+.progress-container {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 25px;
+    margin: 20px 0;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: #4CAF50;
+    border-radius: 25px;
+    transition: width 0.3s;
+}
+
+#progress-percent {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 게임 다운로드 */
+#progress-game-container {
+    width: 100%;
+    margin: 20px 0;
+    margin-right: 6px;
+    height: 80px;
+    padding-top: 10px;
+}
+
+#progress-game-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #4CAF50;
+    border-radius: 25px;
+    transition: width 0.3s;
+}
+
+#progress-game-percent {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 진행바 색 */
+progress {
+    -webkit-appearance: none;
+}
+
+::-webkit-progress-bar {
+    background-color: rgb(255, 255, 255);
+}
+
+::-webkit-progress-value {
+    background-color: #4CAF50;
+}
+
+/* 상단 바 스타일 */
+#top-bar {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #2c3e50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    -webkit-app-region: drag;
+    z-index: 1000;
+}
+
+/* 버전 정보 스타일 */
+.launcher-version {
+    font-size: 14px;
+    color: #ecf0f1;
+    -webkit-app-region: no-drag;
+}
+
+/* 타이틀 */
+.game-title {
+    font-family: 'Warhaven_Bold';
+    font-size: 100px;
+    color: #060606;
+    margin: 0;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+
+}
+
+/* 게임 다운로드/시작 버튼 */
+.game-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+    height: 90px;
+    margin: 10px 0;
+}
+
+.game-button:hover {
+    background-color: #45a049;
+}
+
+.game-button:active {
+    transform: scale(0.98);
+    background-color: #3e8e41;
+}
+
+.game-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
+}
+
+.game-button:disabled {
+    background-color: #a5d6a7;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* 유효성 검사 버튼 */
+.game-validate-btn {
+    height: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #4e5e6e;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.game-validate-btn:hover {
+    background-color: #2c3e50;
+}
+
+/* 하단 기능 */
+#footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    background-color: #2c3e50;
+    height: 110px;
+}
+
+#game-start-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    bottom: 20px;
+    right: 20px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-text {
+    margin: 0;
+    color: white;
+}
+
+.validate-text {
+    margin: 0;
+    color: white;
+}
+
+.validate-info {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 버튼 동작 중. 막기 */
+button:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+    color: #999;
+}
+
+button:disabled:hover {
+    background-color: #d3d3d3;
+}

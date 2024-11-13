@@ -122,12 +122,17 @@ export function handleNotice(noticeAPI) {
     // 날짜 포맷
     function formatDate(dateString) {
         const date = new Date(dateString);
-        const year = date.getFullYear();
-        const month = (`0${date.getMonth() + 1}`).slice(-2);
-        const day = (`0${date.getDate()}`).slice(-2);
-        const hours = (`0${date.getHours()}`).slice(-2);
-        const minutes = (`0${date.getMinutes()}`).slice(-2);
-        const seconds = (`0${date.getSeconds()}`).slice(-2);
+
+        // 한국 시간 (UTC+9) 오프셋 적용
+        const koreaTime = new Date(date.getTime() + 9 * 60 * 60 * 1000);
+
+        const year = koreaTime.getFullYear();
+        const month = (`0${koreaTime.getMonth() + 1}`).slice(-2);
+        const day = (`0${koreaTime.getDate()}`).slice(-2);
+        const hours = (`0${koreaTime.getHours()}`).slice(-2);
+        const minutes = (`0${koreaTime.getMinutes()}`).slice(-2);
+        const seconds = (`0${koreaTime.getSeconds()}`).slice(-2);
+
         return `${year}.${month}.${day} ${hours}:${minutes}:${seconds}`;
     }
 

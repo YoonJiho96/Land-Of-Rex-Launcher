@@ -30,6 +30,11 @@ app.whenReady().then(async () => {
     await checkInstalled(getExeDir(), mainWindow);
   });
 
+  mainWindow.on('focus', async () => {
+    console.log('Window focused, checking for updates...');
+    await checkInstalled(getExeDir(), mainWindow);
+  });
+
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       mainWindow = createWindow();

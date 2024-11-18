@@ -96,9 +96,11 @@ async function validateManifest(exeDir, mainWindow) {
 
         if (localManifest.root_directory.hash === serverManifest.root_directory.hash) {
             mainWindow.webContents.send('update-required', false);
+            console.log("Latest Version");
             return true;
         } else {
             mainWindow.webContents.send('update-required', true);
+            console.log("Update-Required");
             return false;
         }
     } else {
